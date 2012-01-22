@@ -1,0 +1,27 @@
+From 61c565bc06a83da75b57f8568fe76f393e665d70 Mon Sep 17 00:00:00 2001
+From: "Richard W.M. Jones" <rjones@redhat.com>
+Date: Tue, 8 Nov 2011 14:40:18 +0000
+Subject: [PATCH] Fix Python code when _bestPackageFromList returns None.
+
+Yet Another Bug caused by lack of strong typing and nullable types in
+this sad excuse for a programming language.
+---
+ src/febootstrap_yum_rpm.ml |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/src/febootstrap_yum_rpm.ml b/src/febootstrap_yum_rpm.ml
+index bfda11e..1def619 100644
+--- a/src/febootstrap_yum_rpm.ml
++++ b/src/febootstrap_yum_rpm.ml
+@@ -78,7 +78,7 @@ while not stable:
+             for r in pkg.requires:
+                 ps = yb.whatProvides (r[0], r[1], r[2])
+                 best = yb._bestPackageFromList (ps.returnPackages ())
+-                if best.name != pkg.name:
++                if best and best.name != pkg.name:
+                     deps[pkg].append (best)
+                     if not deps.has_key (best):
+                         deps[best] = False
+-- 
+1.7.6
+
