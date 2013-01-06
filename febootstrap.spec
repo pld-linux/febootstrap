@@ -1,12 +1,12 @@
 Summary:	Bootstrapping tool for creating supermin appliances
 Summary(pl.UTF-8):	Narzędzie bootstrapujące do tworzenia minimalistycznych instalacji
 Name:		febootstrap
-Version:	3.20
+Version:	3.21
 Release:	1
 License:	GPL v2
 Group:		Applications/System
 Source0:	http://libguestfs.org/download/febootstrap/%{name}-%{version}.tar.gz
-# Source0-md5:	a3cc84a3beb1d095c9aebe9895aca532
+# Source0-md5:	8938bc9af564ba389651ee24cc3d3d30
 URL:		http://people.redhat.com/~rjones/febootstrap/
 BuildRequires:	e2fsprogs-devel
 BuildRequires:	gawk
